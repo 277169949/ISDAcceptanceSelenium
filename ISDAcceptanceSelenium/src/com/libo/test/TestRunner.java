@@ -1,6 +1,7 @@
 package com.libo.test;
 
 import com.libo.testcases.LoginTestCase;
+import com.libo.testcases.SystemConfigTestCase;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -12,6 +13,7 @@ public class TestRunner extends TestCase {
 
 		TestSuite suite = new TestSuite("All tests from part1");// 表明这个标识性东西
 		suite.addTestSuite(LoginTestCase.class);
+		suite.addTestSuite(SystemConfigTestCase.class);
 		return suite;
 	}
 

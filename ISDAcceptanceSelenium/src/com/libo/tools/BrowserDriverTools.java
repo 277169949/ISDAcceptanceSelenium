@@ -1,10 +1,15 @@
 package com.libo.tools;
 
+import java.util.Arrays;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import com.gargoylesoftware.htmlunit.javascript.host.html.Option;
 
 public class BrowserDriverTools {
 
@@ -42,7 +47,12 @@ public class BrowserDriverTools {
 	public static WebDriver getChromeDriver() {
 		System.setProperty("webdriver.chrome.driver",
 				"BrowserDriver/chromeDriverServer.exe");
-		WebDriver driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		capabilities.setCapability("chrome.switches",
+				Arrays.asList("--start-maximized"));
+		options.addArguments("--test-type", "--start-maximized");
+		WebDriver driver = new ChromeDriver(options);
 
 		return driver;
 	}
@@ -56,6 +66,7 @@ public class BrowserDriverTools {
 				.setCapability(
 						InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
 						true);
+
 		WebDriver driver = new InternetExplorerDriver(ieCapabilities);
 
 		return driver;
