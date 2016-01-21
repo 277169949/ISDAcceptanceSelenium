@@ -11,9 +11,9 @@ public class TestRunner extends TestCase {
 
 	public static Test suite() {
 
-		TestSuite suite = new TestSuite("All tests from part1");// ±íÃ÷Õâ¸ö±êÊ¶ÐÔ¶«Î÷
+		TestSuite suite = new TestSuite("All tests from part1");// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½Ô¶ï¿½ï¿½ï¿½
 		suite.addTestSuite(LoginTestCase.class);
-		suite.addTestSuite(SystemConfigTestCase.class);
+		//suite.addTestSuite(SystemConfigTestCase.class);
 		return suite;
 	}
 
